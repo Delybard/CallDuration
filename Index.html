@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Call Duration</title>
+  </head>
+  <style>
+    body {
+      background-color: rgb(17, 17, 17);
+      color: snow;
+    }
+  </style>
+  <body>
+    <h id="top">Time in Call:</h>
+    <p id="time"></p>
+    <p>or</p>
+    <p id="time2"></p>
+  </body>
+  <script type="text/javascript"> 
+    function calcTime(){
+      let callStart = 1634655360000;
+      let currentTime = new Date();
+      let nowUTC =  Date.UTC(currentTime.getUTCFullYear(), currentTime.getUTCMonth(), currentTime.getUTCDate(), currentTime.getUTCHours(), currentTime.getUTCMinutes(), currentTime.getUTCSeconds());
+      let days = (nowUTC - callStart) / 86400000;
+      let hours = (days % 1) * 24;
+      let minutes = (hours % 1) * 60;
+      document.getElementById("time").innerHTML = `Days: ${Math.floor(days)}, Hours: ${Math.floor(hours)}, Minutes: ${Math.floor(minutes)}`;
+      hours = (nowUTC - callStart) / 3600000;
+      minutes = (hours % 1) * 60;
+      document.getElementById("time2").innerHTML = `Hours: ${Math.floor(hours)}, Minutes: ${Math.floor(minutes)}`;
+    }
+    calcTime();
+    setInterval(calcTime, 30*1000);
+  </script>
+</html>
