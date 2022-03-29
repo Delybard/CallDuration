@@ -35,9 +35,10 @@
       let callStart = 1634655360000;
       let callEnd = 1645427760000;
       updateTimestamps(callStart, callEnd, "time3", "time4");
-      callStart = callEnd;
+      //add time: callStart = ;
       let currentTime = new Date();
       let nowUTC =  Date.UTC(currentTime.getUTCFullYear(), currentTime.getUTCMonth(), currentTime.getUTCDate(), currentTime.getUTCHours(), currentTime.getUTCMinutes(), currentTime.getUTCSeconds());
+      callStart = nowUTC;
       updateTimestamps(callStart, nowUTC, "time", "time2");
     }
     calcTime();
